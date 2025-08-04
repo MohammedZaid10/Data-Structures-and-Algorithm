@@ -1,0 +1,301 @@
+Pattern Recognition
+===================
+
+1. Outer loop is for number of lines
+2. Loop inside is to print how many characters
+
+==========================================
+
+Question 1 :
+*****
+*****
+*****
+*****
+*****
+
+Answer:
+n = 5
+for i in range(n):
+    for j in range(n):
+        print("*", end ="")
+    print()
+
+==========================================
+
+Question 2 :
+*
+**
+***
+****
+*****
+
+Answer:
+n = 5
+for i in range(n):
+    for j in range(i+1):
+        print("*", end ="")
+    print()
+
+==========================================
+
+Question 3 :
+1
+12
+123
+1234
+12345
+
+Answer:
+n = 5
+for i in range(n):
+    for j in range(i+1):
+        print(j+1, end ="")
+    print()
+
+==========================================
+
+Question 4 :
+1
+22
+333
+4444
+55555
+
+Answer:
+n = 5
+for i in range(n):
+    for j in range(i+1):
+        print(i+1, end ="")
+    print()
+
+==========================================
+
+Question 5 :
+*****
+****
+***
+**
+*
+
+Answer:
+n = 5
+for i in range(n):
+    for j in range(n-i):
+        print("*", end ="")
+    print()
+
+==========================================
+
+Question 6 :
+12345
+1234
+123
+12
+1
+
+Answer:
+n = 5
+for i in range(n):
+    for j in range(n-i):
+        print(j+1, end ="")
+    print()
+
+==========================================
+
+Question 7 :
+    *
+   ***
+  *****
+ *******
+*********
+
+Answer:
+n = 5
+for i in range(n):
+    for j in range(n-1-i):
+        print(" ", end ="")
+    for j in range(2*i+1):
+        print("*", end ="")
+    print()
+
+==========================================
+
+Question 8 :
+*********
+ *******
+  *****
+   ***
+    *
+
+Answer:
+n = 5
+for i in range(n):
+    for j in range(i):
+        print(" ", end ="")
+    for j in range(2*(n-1-i)+1):
+        print("*", end ="")    
+    print()
+
+==========================================
+
+Question 9 :
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    *
+
+n = 5
+for i in range(2*n-1):
+    if i < n:
+        for j in range(n-1-i):
+            print(" ", end="")
+        for j in range(i*2+1):
+            print("*", end="")
+        print()
+    else:
+        for j in range(i-(n-1)):
+            print(" ", end="")
+        for j in range((2*n-1-i)*2-1):
+            print("*", end="")
+        print()
+
+==========================================
+
+Question 10 :
+    *
+   ***
+  *****
+ *******
+*********
+*********
+ *******
+  *****
+   ***
+    *
+
+n = 5
+for i in range(2*n):  # Changed from 2*n-1 to 2*n
+    if i < n:
+        for j in range(n-1-i):
+            print(" ", end="")
+        for j in range(i*2+1):
+            print("*", end="")
+        print()
+    else:
+        for j in range(i-n):  # Changed from i-(n-1) to i-n
+            print(" ", end="")
+        for j in range((2*n-i)*2-1):  # Changed from (2*n-1-i)*2-1 to (2*n-i)*2-1
+            print("*", end="")
+        print()
+
+==========================================
+
+Question 11 :
+*
+**
+***
+****
+*****
+****
+***
+**
+*
+
+n = 5
+for i in range(n):
+    for j in range(i+1):
+        print("*", end="")
+    print()
+
+for i in range(n):
+    for j in range(n-i-1):
+        print("*", end="")
+    print()
+
+(OR)
+
+n = 5
+for i in range(2*n-1):
+    if (i<n):
+        for j in range(i+1):
+            print("*", end="")
+    else:
+        for j in range(2*n-i-1):
+            print("*", end="")
+    print()
+
+==========================================
+
+Question 12 :
+*
+**
+***
+****
+*****
+*****
+****
+***
+**
+*
+
+n = 5
+for i in range(2*n):
+    if (i<n):
+        for j in range(i+1):
+            print("*", end="")
+    else:
+        for j in range(2*n-i):
+            print("*", end="")
+    print()
+
+==========================================
+
+Question 13 :
+1
+01
+101
+0101
+10101
+
+n = 5
+for i in range(n):
+    for j in range(i+1):
+        if (i+j)%2==0:
+            print(1, end="")
+        else:
+            print(0, end="")
+    print()
+
+(OR)
+
+n = 5
+for i in range(n):
+    for j in range(i+1):
+        print((i+j+1)%2, end="")
+    print()
+
+==========================================
+
+Question 14 :
+1      1
+12    21
+123  321
+12344321
+
+n = 4
+for i in range(n):
+    for j in range(i+1):
+        print(j+1, end="")
+    for j in range((n-i-1)*2):
+        print(" ", end="")
+    for j in range(i+1,0,-1):
+        print(j, end="")
+    print()
+
+==========================================
+

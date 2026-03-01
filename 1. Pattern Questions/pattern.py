@@ -271,4 +271,12 @@ def Question14():
             print(j, end="")
         print()
 
-Question4()
+def Sample():
+    n = 5
+    for i in range(n):
+        for j in range(n):
+            print("*", end="")
+        n = n - 1
+        print()
+
+Question14()

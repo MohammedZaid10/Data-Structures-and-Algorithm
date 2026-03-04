@@ -113,7 +113,7 @@ def Question8():
             print("*", end ="")    
         print()
 
-# Question 9 :
+# Question 9a :
 #     *
 #    ***
 #   *****
@@ -124,7 +124,7 @@ def Question8():
 #    ***
 #     *
 
-def Question9():
+def Question9a():
     n = 5
     for i in range(2*n-1):
         if i < n:
@@ -140,19 +140,9 @@ def Question9():
                 print("*", end="")
             print()
 
-# Question 10 :
-#     *
-#    ***
-#   *****
-#  *******
-# *********
-# *********
-#  *******
-#   *****
-#    ***
-#     *
+# (OR)
 
-def Question10():
+def Question9b():
     n = 5
     for i in range(2*n):  # Changed from 2*n-1 to 2*n
         if i < n:
@@ -168,7 +158,7 @@ def Question10():
                 print("*", end="")
             print()
 
-# Question 11 :
+# Question 10 :
 # *
 # **
 # ***
@@ -180,7 +170,7 @@ def Question10():
 # *
 
 
-def Question11a():
+def Question10a():
     n = 5
     for i in range(n):
         for j in range(i+1):
@@ -194,7 +184,7 @@ def Question11a():
 
 # (OR)
 
-def Question11b():
+def Question10b():
     n = 5
     for i in range(2*n-1):
         if (i<n):
@@ -205,7 +195,7 @@ def Question11b():
                 print("*", end="")
         print()
 
-# Question 12 :
+# Question 11 :
 # *
 # **
 # ***
@@ -217,7 +207,7 @@ def Question11b():
 # **
 # *
 
-def Question12():
+def Question11():
     n = 5
     for i in range(2*n):
         if (i<n):
@@ -228,14 +218,14 @@ def Question12():
                 print("*", end="")
         print()
 
-# Question 13 :
+# Question 12 :
 # 1
 # 01
 # 101
 # 0101
 # 10101
 
-def Question13a():
+def Question12a():
     n = 5
     for i in range(n):
         for j in range(i+1):
@@ -247,20 +237,20 @@ def Question13a():
 
 # (OR)
 
-def Question13b():
+def Question12b():
     n = 5
     for i in range(n):
         for j in range(i+1):
             print((i+j+1)%2, end="")
         print()
 
-# Question 14 :
+# Question 13 :
 # 1      1
 # 12    21
 # 123  321
 # 12344321
 
-def Question14():
+def Question13():
     n = 4
     for i in range(n):
         for j in range(i+1):
@@ -271,12 +261,4 @@ def Question14():
             print(j, end="")
         print()
 
-def Sample():
-    n = 5
-    for i in range(n):
-        for j in range(n):
-            print("*", end="")
-        n = n - 1
-        print()
-
-Question14()
+Question13()

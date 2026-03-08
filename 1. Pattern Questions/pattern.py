@@ -250,6 +250,8 @@ def Question12b():
 # 123  321
 # 12344321
 
+# if i = 0 then 6 , if i = 1 then 4, 2 then 2, 3 then 0
+
 def Question13():
     n = 4
     for i in range(n):

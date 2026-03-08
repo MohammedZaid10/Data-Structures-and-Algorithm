@@ -263,4 +263,110 @@ def Question13():
             print(j, end="")
         print()
 
-Question13()
+# Question 14 :
+# 1
+# 2 3
+# 4 5 6
+# 7 8 9 10
+# 11 12 13 14 15
+
+def Question14():
+    n = 5
+    K = 1
+    for i in range (n):
+        for j in range (i+1):
+            print(K, end=" ")
+            K = K + 1
+        print()
+
+# Question 15 :
+# A
+# A B
+# A B C
+# A B C D
+# A B C D E
+
+def numtoChr(num):
+    return chr(num+65)
+
+def Question15():
+    n = 5
+    for i in range (n):
+        for j in range (i+1):
+            print(numtoChr(j), end=" ")
+        print()
+
+# Question 16 :
+# A B C D E
+# A B C D
+# A B C
+# A B
+# A
+
+def numtoChr(num):
+    return chr(num+65)
+
+def Question16():
+    n = 26
+    for i in range (n):
+        for j in range (n):
+            print(numtoChr(j), end=" ")
+        n = n - 1
+        print()
+
+# Question 17 :
+# A
+# B B
+# C C C
+# D D D D
+# E E E E E
+
+def numtoChr(num):
+    return chr(num+65)
+
+def Question17():
+    n = 5
+    for i in range (n):
+        for j in range (i+1):
+            print(numtoChr(i), end=" ")
+        print()
+
+# Question 18 :
+#       A
+#     A B A
+#   A B C B A
+# A B C D C B A
+
+def numtoChr(num):
+    return chr(num+65)
+
+def Question18():
+    n = 4
+    for i in range (n):
+        for j in range (n):
+            print(" ", end = " ")
+        n = n - 1
+        for j in range (i+1):
+            print(numtoChr(j), end=" ")
+        for j in range (i, 0 , -1):
+            print (numtoChr(j-1), end= " ")
+        print()
+
+# Question 19 :
+# E 
+# D E 
+# C D E 
+# B C D E 
+# A B C D E 
+
+def numtoChr(num):
+    return chr(num+65)
+
+def Question19():
+    n = 5
+    for i in range (n):
+        for j in range (i+1, 0 , -1):
+            print(numtoChr(n-j), end = " ")
+        print()
+
+Question19()

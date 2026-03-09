@@ -369,4 +369,87 @@ def Question19():
             print(numtoChr(n-j), end = " ")
         print()
 
-Question19()
+# Question 20 :
+# **********
+# ****  ****
+# ***    ***
+# **      **
+# *        *
+# *        *
+# **      **
+# ***    ***
+# ****  ****
+# **********
+
+def Question20a():
+    n = 5;
+    for i in range(2 * n):    
+        if (i<n):
+            for j in range(n - i):
+                print("*", end = "")
+            for j in range (2 * i):
+                print(" ", end = "")
+            for j in range(n - i):
+                print("*", end = "")
+            print()
+        else :
+            for j in range(i - n + 1):
+                print("*", end = "")
+            for j in range((2*n - i - 1)* 2):
+                print(" ", end = "")
+            for j in range(i- n + 1):
+                print("*", end = "")
+            print()
+
+# (OR)
+
+def Question20b():
+    n = 5
+    
+    # Top Half: Stars decrease, Pipes increase
+    for i in range(n):
+        stars = "*" * (n - i)
+        pipes = "|" * (2 * i)
+        print(stars + pipes + stars)
+
+    # Bottom Half: Stars increase, Pipes decrease
+    for i in range(n):
+        # We use (i + 1) so the first row starts at 1 star
+        # We use (2 * (n - i - 1)) to shrink the pipes
+        stars = "*" * (i + 1)
+        pipes = "|" * (2 * (n - i - 1))
+        print(stars + pipes + stars)
+
+# Question 21 :
+# **********
+# ****  ****
+# ***    ***
+# **      **
+# *        *
+# *        *
+# **      **
+# ***    ***
+# ****  ****
+# **********
+
+def Question21():
+    n = 5;
+    for i in range(2 * n - 1):    
+        if (i<n):
+            for j in range(i+1):
+                print("*", end = "")
+            for j in range (n * 2 - i * 2 - 2):
+                print(" ", end = "")
+            for j in range(i+1):
+                print("*", end = "")
+            print()
+        else :
+            for j in range(n * 2  - i - 1):
+                print("*", end = "")
+            for j in range ((i - n) * 2 + 2):
+                print(" ", end="")
+            for j in range (n * 2 - i - 1):
+                print("*", end = "")
+            print()
+
+Question21()

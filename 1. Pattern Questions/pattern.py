@@ -452,4 +452,46 @@ def Question21():
                 print("*", end = "")
             print()
 
-Question21()
+# Question 22 :
+# ****
+# *  *
+# *  *
+# ****
+
+def Question22a():
+    n = 4
+    for i in range(n):
+        for j in range((i == 0) or (i == n-1)):
+            print("*" * n, end="")
+        for j in range(n * (i > 0 and i < n-1)):
+            if j == 0 or j == n-1:
+                print("*", end="")
+            else:
+                print(" ", end="")
+        print()
+
+# (OR)
+
+def Question22b():
+    n = 4
+    for i in range(n):
+        for j in range(n):
+            if i == 0 or i == n-1 or j == 0 or j == n-1:
+                print("*", end="")
+            else:
+                print(" ", end="")
+        print()
+
+# Question 23 :
+
+def Question23():
+    n = 4;
+    for i in range(2*n-1):
+        for j in range (2*n-1):
+            row = min(i, 2*n-2-i)
+            col = min(j, 2*n-2-j) 
+            ans = min(row,col)
+            print(n-ans, end= "")
+        print()
+
+Question23()

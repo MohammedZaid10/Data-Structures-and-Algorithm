@@ -31,7 +31,10 @@ def Q3(num) :
     return rev
 
 def palindrome(num):
-    return num == Q3(num)
+    if num == Q3(num):
+        return f"{num} is a Palindrome"
+    else :
+        return f"{num} is not a Palindrome"
 
 # Question 4:
 # 

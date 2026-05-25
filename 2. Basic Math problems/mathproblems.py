@@ -21,10 +21,20 @@ def Q2(num):
     return rev
 
 # Question3:
-def Q3(num):
-    num = num % 10
-    return num
+# Palindrome
+def Q3(num) :
+    rev = 0
+    while num > 0:
+        rem = num % 10
+        num = num // 10
+        rev = rev * 10 + rem
+    return rev
 
+def palindrome(num):
+    return num == Q3(num)
+
+# Question 4:
+# 
 num = int(input())
-ans = Q2(num)
+ans = palindrome(num)
 print(ans)

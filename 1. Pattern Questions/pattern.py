@@ -113,7 +113,7 @@ def Question8():
             print("*", end ="")    
         print()
 
-# Question 9a :
+# Question 9 :
 #     *
 #    ***
 #   *****
@@ -409,7 +409,7 @@ def Question20b():
     # Top Half: Stars decrease, Pipes increase
     for i in range(n):
         stars = "*" * (n - i)
-        pipes = "|" * (2 * i)
+        pipes = " " * (2 * i)
         print(stars + pipes + stars)
 
     # Bottom Half: Stars increase, Pipes decrease
@@ -417,20 +417,19 @@ def Question20b():
         # We use (i + 1) so the first row starts at 1 star
         # We use (2 * (n - i - 1)) to shrink the pipes
         stars = "*" * (i + 1)
-        pipes = "|" * (2 * (n - i - 1))
+        pipes = " " * (2 * (n - i - 1))
         print(stars + pipes + stars)
 
 # Question 21 :
-# **********
-# ****  ****
-# ***    ***
-# **      **
-# *        *
 # *        *
 # **      **
 # ***    ***
 # ****  ****
 # **********
+# ****  ****
+# ***    ***
+# **      **
+# *        *
 
 def Question21():
     n = 5;

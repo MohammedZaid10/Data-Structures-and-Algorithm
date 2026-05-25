@@ -8,8 +8,6 @@ def Q1(num):
     return cnt
 
 
-
-
 # Question2:
 # Reverse a number
 def Q2(num):
@@ -31,10 +29,14 @@ def Q3(num) :
     return rev
 
 def palindrome(num):
-    return num == Q3(num)
+    if num == Q3(num):
+        return f"{num} is a Palindrome"
+    else :
+        return f"{num} is not a Palindrome"
 
 # Question 4:
-# 
+# GCD or HCF
+
 num = int(input())
 ans = palindrome(num)
 print(ans)

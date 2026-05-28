@@ -1,0 +1,17 @@
+Math Questions
+==============
+
+Question1 :
+Count Digits of a number
+
+Question2:
+Reverse a number
+
+Question3:
+Palindrome
+
+Question 4:
+GCD or HCF
+
+Question 5:
+LCM 

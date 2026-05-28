@@ -36,7 +36,17 @@ def palindrome(num):
 
 # Question 4:
 # GCD or HCF
+def gcd(a,b):
+    divisor = min(a,b)
+    dividend = max(a,b)
 
-num = int(input())
-ans = palindrome(num)
+    while dividend % divisor !=0:
+        temp = dividend
+        dividend = divisor
+        divisor = temp % divisor
+    return divisor
+
+a = int(input())
+b = int(input())
+ans = gcd(a,b)
 print(ans)

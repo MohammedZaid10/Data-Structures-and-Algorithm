@@ -46,7 +46,34 @@ def gcd(a,b):
         divisor = temp % divisor
     return divisor
 
-a = int(input())
-b = int(input())
-ans = gcd(a,b)
+# Question 5:
+# LCM 
+
+
+# Question 6:
+# Armstrong number
+def count(num):
+    count = 0
+    while num > 0:
+        num = num // 10
+        count = count + 1
+    return count
+
+def armstrong(num):
+    original_num = num
+    total_digits = count(num) 
+    arm = 0
+    while num > 0:
+        rem = num % 10
+        digit_power = rem ** total_digits
+        arm = arm + digit_power
+        num = num // 10
+
+    if arm == original_num:
+        return f"{original_num} is an Armstrong number"
+    else:
+        return f"{original_num} is not an Armstrong number"
+
+num = int(input())
+ans = armstrong(num)
 print(ans)

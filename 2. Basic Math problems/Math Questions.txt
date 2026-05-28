@@ -15,3 +15,7 @@ GCD or HCF
 
 Question 5:
 LCM 
+
+Question 6:
+Armstrong number
+

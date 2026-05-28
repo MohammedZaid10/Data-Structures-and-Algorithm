@@ -19,3 +19,8 @@ LCM
 Question 6:
 Armstrong number
 
+Question 7:
+Print all Divisors
+
+Question 8:
+Check for Prime

@@ -1,11 +1,18 @@
 # Question1 :
 # Count Digits of a number
-def Q1(num):
+import math 
+
+def Q1a(num):
     cnt = 0
     while num > 0:
         num = num//10
         cnt+=1
     return cnt
+
+# (OR)
+
+def Q1b(num):
+    return math.floor(math.log10(num))+1
 
 
 # Question2:
@@ -74,6 +81,88 @@ def armstrong(num):
     else:
         return f"{original_num} is not an Armstrong number"
 
+
+# Question 7:
+# Print all Divisors
+def Divisorsa(num):
+    for i in range (1, num+1):
+        if num % i == 0:
+            print (i)
+
+# (OR)
+
+def Divisorsb(num):
+    # COMMENT: Loop only up to the square root of num (int(num**0.5) + 1)
+    for i in range(1, int(num ** 0.5) + 1):
+        if num % i == 0:
+            print(i)  # COMMENT: Prints the smaller divisor of the pair
+            
+            # COMMENT: Prints the matching larger divisor if it is not a duplicate (like 6*6)
+            if i != num // i:
+                print(num // i)
+
+#     Left Side (Small)           Middle             Right Side (Large)
+# [ Checks 1 to 9 via Loop ]   [ Check 10 ]   [ Instantly calculated via num // i ]
+
+#        1  ------------------------> 6 <------------------------ 36
+
+# (OR) to print in order
+
+def Divisorsc(num):
+    divisors_list = []  # Step 1: Create an empty list to store divisors
+    
+    for i in range(1, int(num ** 0.5) + 1):
+        if num % i == 0:
+            divisors_list.append(i)  # Step 2: Add the smaller divisor
+            
+            if i != num // i:
+                divisors_list.append(num // i)  # Step 2: Add the larger divisor
+                
+    # Step 3: Sort the list in ascending order
+    divisors_list.sort()
+    
+    # Step 4: Print each divisor from the sorted list
+    for divisor in divisors_list:
+        print(divisor)
+
+
+# (OR) to print in order but without sort
+
+def Divisors(num):
+    small_divisors = []  # Naturally grows smallest to largest (1, 2, 3...)
+    large_divisors = []  # Naturally grows largest to smallest (...12, 6, 4)
+    
+    for i in range(1, int(num ** 0.5) + 1):
+        if num % i == 0:
+            small_divisors.append(i)          # Left side goes here
+            if i != num // i:
+                large_divisors.append(num // i) # Right side goes here
+                
+    # TWEAK: Reverse the large list and print everything sequentially
+    # large_divisors[::-1] turns [12, 6, 4] into [4, 6, 12]
+    all_divisors = small_divisors + large_divisors[::-1]
+    
+    for divisor in all_divisors:
+        print(divisor)
+
+# time complexity is root n
+
+# Question 8:
+# Check for Prime
+
+def prime(num):
+    if num < 2:
+        return f"{num} is not a prime"
+    
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return f"{num} is not a prime"
+    
+    return f"{num} is a prime"
+
+# time complexity is root n
+
 num = int(input())
-ans = armstrong(num)
+ans = Q1b(num)
 print(ans)
+

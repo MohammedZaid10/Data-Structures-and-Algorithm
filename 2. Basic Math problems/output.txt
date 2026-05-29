@@ -1,1 +1,10 @@
-3
+153 is not a prime
+17 is a prime
+16 is not a prime
+17 is a prime
+14 is not a prime
+67 is a prime
+53 is a prime
+5 is a prime
+7 is a prime
+57 is not a prime

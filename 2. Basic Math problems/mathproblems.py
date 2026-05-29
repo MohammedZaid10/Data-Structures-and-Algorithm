@@ -162,7 +162,69 @@ def prime(num):
 
 # time complexity is root n
 
-num = int(input())
-ans = Q1b(num)
-print(ans)
+# num = int(input())
+# ans = Q1b(num)
+# print(ans)
+
+# Question 9:
+# Given a series of number print it is a prime or not
+
+def primea(num):
+    if num < 2:
+        return f"{num} is not a prime"
+    
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return f"{num} is not a prime"
+    
+    return f"{num} is a prime"
+
+# 1. Read the input line, split by spaces, convert to integers, and create a list
+# series = list(map(int, input("Enter your numbers separated by spaces: \n").split()))
+
+# 2. Directly grab each actual number from the list and pass it to the function
+# for num in series:
+#     print(prime(num))
+
+# (OR)
+
+import sys
+
+def primeb(num):
+    if num < 2:
+        return f"{num} is not a prime"
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return f"{num} is not a prime"
+    return f"{num} is a prime"
+
+# print("Enter your numbers (Press Ctrl+D or Ctrl+Z when finished):")
+
+# 1. sys.stdin.read() grabs all text across all lines
+# 2. .split() cleanly extracts numbers ignoring ALL spaces and newlines
+# raw_input = sys.stdin.read()
+# series = list(map(int, raw_input.split()))
+
+# 3. Process the cleanly separated numbers
+# for num in series:
+#     print(primeb(num))
+
+# (OR)
+
+# user input in multiple lines or spaces
+
+import sys
+def primec(num):
+    if num < 2:
+        return f"{num} is not a prime"
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return f"{num} is not a prime"
+    return f"{num} is a prime"
+
+content = sys.stdin.read()
+series = list(map(int, content.split()))
+
+for num in series:
+    print(primec(num))
 

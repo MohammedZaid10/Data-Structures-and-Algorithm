@@ -14,6 +14,8 @@ def Q1a(num):
 def Q1b(num):
     return math.floor(math.log10(num))+1
 
+# ================================================================================
+# ================================================================================
 
 # Question2:
 # Reverse a number
@@ -24,6 +26,9 @@ def Q2(num):
         num = num // 10
         rev = rev * 10 + rem
     return rev
+
+# ================================================================================
+# ================================================================================
 
 # Question3:
 # Palindrome
@@ -41,6 +46,8 @@ def palindrome(num):
     else :
         return f"{num} is not a Palindrome"
 
+# ================================================================================
+
 # Question 4:
 # GCD or HCF
 def gcd(a,b):
@@ -53,9 +60,14 @@ def gcd(a,b):
         divisor = temp % divisor
     return divisor
 
+# ================================================================================
+# ================================================================================
+
 # Question 5:
 # LCM 
 
+# ================================================================================
+# ================================================================================
 
 # Question 6:
 # Armstrong number
@@ -81,6 +93,8 @@ def armstrong(num):
     else:
         return f"{original_num} is not an Armstrong number"
 
+# ================================================================================
+# ================================================================================
 
 # Question 7:
 # Print all Divisors
@@ -88,6 +102,8 @@ def Divisorsa(num):
     for i in range (1, num+1):
         if num % i == 0:
             print (i)
+
+# ================================================================================
 
 # (OR)
 
@@ -105,6 +121,8 @@ def Divisorsb(num):
 # [ Checks 1 to 9 via Loop ]   [ Check 10 ]   [ Instantly calculated via num // i ]
 
 #        1  ------------------------> 6 <------------------------ 36
+
+# ================================================================================
 
 # (OR) to print in order
 
@@ -125,6 +143,7 @@ def Divisorsc(num):
     for divisor in divisors_list:
         print(divisor)
 
+# ================================================================================
 
 # (OR) to print in order but without sort
 
@@ -147,6 +166,9 @@ def Divisors(num):
 
 # time complexity is root n
 
+# ================================================================================
+# ================================================================================
+
 # Question 8:
 # Check for Prime
 
@@ -163,8 +185,11 @@ def prime(num):
 # time complexity is root n
 
 # num = int(input())
-# ans = Q1b(num)
+# ans = prime(num)
 # print(ans)
+
+# ================================================================================
+# ================================================================================
 
 # Question 9:
 # Given a series of number print it is a prime or not
@@ -186,7 +211,11 @@ def primea(num):
 # for num in series:
 #     print(prime(num))
 
+# ================================================================================
+
 # (OR)
+
+# user input in multiple lines or spaces
 
 import sys
 
@@ -209,22 +238,171 @@ def primeb(num):
 # for num in series:
 #     print(primeb(num))
 
+# ================================================================================
+
 # (OR)
 
-# user input in multiple lines or spaces
+import sys
+
+def compute_sieve(max_num):
+    # Handle cases where max_num is very small
+    if max_num < 2:
+        max_num = 2
+        
+    # 1. Initialize sieve array with True (assume all are prime)
+    sieve = [True] * (max_num + 1)
+    sieve[0] = sieve[1] = False  # Fixed typo here!
+    
+    # 2. Run the Sieve algorithm
+    for i in range(2, int(max_num ** 0.5) + 1):
+        if sieve[i]:
+            # Mark all multiples of i starting from i*i as not prime
+            for j in range(i * i, max_num + 1, i):
+                sieve[j] = False
+    return sieve
+
+# # Grab all text across all lines from user input
+raw_input = sys.stdin.read()
+series = list(map(int, raw_input.split()))
+
+# 3. Only build the sieve if there are numbers to process
+if series:
+    max_value = max(series)
+    # Generate the sieve up to the largest number in the input
+    prime_sieve = compute_sieve(max_value)
+
+    # 4. Instantly look up each number using the sieve
+    for num in series:
+        if num >= 0 and prime_sieve[num]:
+            print(f"{num} is a prime")
+        else:
+            print(f"{num} is not a prime")
+
+# 4. Instantly look up each number and create a list of 1s and 0s
+    results = []
+    for num in series:
+        if num >= 0 and prime_sieve[num]:
+            results.append(1)
+        else:
+            results.append(0)
+            
+    # Print the clean 1s and 0s comma-separated
+    print(results)
+
+# ================================================================================
+
+# Problem Statement: Given an integer \(n\),find the total number of prime numbers less than or equal to \(n\).
+# Input: A single integer \(n\) (or a series of integers from sys.stdin).
+# Output: The total count of prime numbers in the range \([2, n]\).
 
 import sys
-def primec(num):
-    if num < 2:
-        return f"{num} is not a prime"
-    for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
-            return f"{num} is not a prime"
-    return f"{num} is a prime"
 
-content = sys.stdin.read()
-series = list(map(int, content.split()))
+def compute_prime_counts(max_num):
+    if max_num < 2:
+        return [0] * (max_num + 1)
+        
+    # 1. Standard Sieve of Eratosthenes
+    sieve = [True] * (max_num + 1)
+    sieve[0] = sieve[1] = False
+    
+    for i in range(2, int(max_num ** 0.5) + 1):
+        if sieve[i]:
+            for j in range(i * i, max_num + 1, i):
+                sieve[j] = False
+                
+    # 2. Build Prefix Count Array
+    # prime_counts[x] will store the exact number of primes <= x
+    prime_counts = [0] * (max_num + 1)
+    current_count = 0
+    
+    for i in range(max_num + 1):
+        if sieve[i]:
+            current_count += 1
+        prime_counts[i] = current_count
+        
+    return prime_counts
 
-for num in series:
-    print(primec(num))
+# Read input series
+raw_input = sys.stdin.read()
+series = list(map(int, raw_input.split()))
 
+if series:
+    max_value = max(series)
+    # Generate the count lookup table once up to the maximum input value
+    count_lookup = compute_prime_counts(max_value)
+
+    # 3. Print the count of primes for each input number
+    results = []
+    for num in series:
+        if num < 0:
+            results.append(0)
+        else:
+            results.append(count_lookup[num])
+            
+    # Output the counts as a clean list
+    print(results)
+
+
+# Problem Statement (Range Prime Count Query): Given two integers, a minimum value (L) and a maximum value (R), find the total number of prime numbers in the inclusive range [L, R].
+# Input: A pair of integers representing the lower bound (L) and upper bound (R) (or multiple such pairs from sys.stdin).
+# Output: The total count of prime numbers that satisfy the condition L <= prime <= R.
+
+# ================================================================================
+
+import sys
+
+def compute_prime_counts(max_num):
+    if max_num < 2:
+        return [0] * (max_num + 1)
+        
+    # 1. Standard Sieve of Eratosthenes
+    sieve = [True] * (max_num + 1)
+    sieve[0] = sieve[1] = False
+    
+    for i in range(2, int(max_num ** 0.5) + 1):
+        if sieve[i]:
+            for j in range(i * i, max_num + 1, i):
+                sieve[j] = False
+                
+    # 2. Build Prefix Count Array
+    prime_counts = [0] * (max_num + 1)
+    current_count = 0
+    
+    for i in range(max_num + 1):
+        if sieve[i]:
+            current_count += 1
+        prime_counts[i] = current_count
+        
+    return prime_counts
+
+# Read all inputs from sys.stdin
+raw_input = sys.stdin.read()
+series = list(map(int, raw_input.split()))
+
+# Ensure input numbers come in complete pairs (L and R)
+if series and len(series) % 2 == 0:
+    # Find the absolute maximum R value to size our sieve correctly
+    max_value = max(series)
+    count_lookup = compute_prime_counts(max_value)
+
+    results = []
+    # Process inputs in pairs of (L, R)
+    for i in range(0, len(series), 2):
+        L = series[i]
+        R = series[i+1]
+        
+        # Handle boundaries and edge cases safely
+        if R < 2 or L > R:
+            results.append(0)
+        else:
+            # Ensure L is at least 2 for logic safety
+            safe_L = max(2, L)
+            # Formula: Primes up to R minus Primes up to (L - 1)
+            primes_in_range = count_lookup[R] - count_lookup[safe_L - 1]
+            results.append(primes_in_range)
+            
+    # Output the range counts as a clean list
+    print(results)
+
+# ================================================================================
+# ================================================================================

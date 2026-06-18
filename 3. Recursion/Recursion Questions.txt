@@ -1,0 +1,5 @@
+Question 1 :
+Print a Name n times
+
+Question 2 :
+Print 1 to n using recursion
